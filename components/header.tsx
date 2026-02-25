@@ -11,6 +11,7 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet"
 import { siteConfig, navLinks } from "@/lib/site-config"
+import Image from "next/image"
 
 const locations = [
   "Keonjhar Town",
@@ -50,25 +51,26 @@ export function Header({
       <div className="border-b-[3px] border-[#1a0a3e] bg-white shadow-sm">
         <div className="mx-auto flex max-w-7xl items-center gap-6 px-4 py-0">
           {/* Logo block */}
-          <Link href="/" className="flex shrink-0 items-center gap-2.5 py-2">
-            <div className="flex h-12 w-12 items-center justify-center rounded-lg border-2 border-[#1a0a3e]">
-              <span className="text-lg font-extrabold text-[#1a0a3e]" style={{ fontFamily: "var(--font-heading)" }}>
-                H+
-              </span>
-            </div>
-            <div className="hidden sm:block">
-              <p
-                className="text-lg font-extrabold uppercase leading-tight tracking-tight text-[#1a0a3e]"
-                style={{ fontFamily: "var(--font-heading)" }}
-              >
-                {siteConfig.name}
-              </p>
-              <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[#1a0a3e]/60">
-                Advanced Super Speciality Hospital
-              </p>
-            </div>
-          </Link>
+          <Link href="/" className="flex shrink-0 items-center gap-3 py-2">
+  <Image
+    src="/healthtechlogo.jpg"
+    alt="HealthTech Hospital Logo"
+    width={45}
+    height={45}
+    className="rounded-md object-cover"
+    priority
+  />
 
+  <div>
+    <p className="text-xl font-extrabold uppercase tracking-tight text-[#1a0a3e]">
+      HealthTech Hospital
+    </p>
+    <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#1a0a3e]/60">
+      Advanced Super Speciality Hospital
+    </p>
+  </div>
+</Link>
+                                                  
           {/* Desktop navigation links */}
           <nav className="hidden flex-1 items-center justify-between xl:flex">
             {navLinks.map((link) => (
